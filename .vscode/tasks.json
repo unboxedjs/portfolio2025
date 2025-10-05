@@ -1,0 +1,118 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "nx: build",
+      "type": "shell",
+      "command": "nx run-many -t build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "nx: test",
+      "type": "shell",
+      "command": "nx run-many -t test",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "nx: lint",
+      "type": "shell",
+      "command": "nx run-many -t lint",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "nx: lint:fix",
+      "type": "shell",
+      "command": "nx run-many -t lint --fix",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "format",
+      "type": "shell",
+      "command": "prettier --write .",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "format:check",
+      "type": "shell",
+      "command": "prettier --check .",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "nx: affected:build",
+      "type": "shell",
+      "command": "nx affected -t build",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "nx: affected:test",
+      "type": "shell",
+      "command": "nx affected -t test",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "nx: affected:lint",
+      "type": "shell",
+      "command": "nx affected -t lint",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    }
+  ]
+}

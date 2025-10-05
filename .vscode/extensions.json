@@ -1,8 +1,42 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
+    // Essential extensions
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "firsttris.vscode-jest-runner"
+    "nrwl.angular-console",
+
+    // Angular specific (for Angular 20+)
+    "angular.ng-template",
+    "cyrilletuzi.angular-schematics",
+
+    // TypeScript and JavaScript
+    "ms-vscode.vscode-typescript-next",
+
+    // Utilities
+    "formulahendry.auto-rename-tag",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.vscode-json",
+
+    // Git and version control
+    "eamodio.gitlens",
+
+    // Testing
+    "firsttris.vscode-jest-runner",
+    "orta.vscode-jest",
+
+    // Productivity
+    "ms-vscode.vscode-todo-highlight",
+    "gruntfuggly.todo-tree",
+
+    // Modern development
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify",
+    "johnpapa.angular2"
   ]
 }
