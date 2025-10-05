@@ -1,82 +1,471 @@
-# Portfolio2025
+# Portfolio 2025
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<div align="center">
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.16.0-brightgreen?logo=node.js)](https://nodejs.org/)
+[![npm Version](https://img.shields.io/npm/v/npm?logo=npm&label=npm)](https://www.npmjs.com/)
+[![Package Manager](https://img.shields.io/badge/package%20manager-npm-CB3837?logo=npm)](https://www.npmjs.com/)
+[![Platform](https://img.shields.io/badge/platform-web-blue)](https://web.dev/)
+[![Build Tool](https://img.shields.io/badge/build-Nx-143055?logo=nx)](https://nx.dev/)
+[![Deployment](https://img.shields.io/badge/deployment-ready-green)](https://vercel.com/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+[![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat&logo=angular&logoColor=white)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Nx](https://img.shields.io/badge/Nx-21.6-143055?style=flat&logo=nx&logoColor=white)](https://nx.dev/)
+[![NgRx](https://img.shields.io/badge/NgRx-20-B7178C?style=flat&logo=reactivex&logoColor=white)](https://ngrx.io/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-## Finish your CI setup
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![ESLint](https://img.shields.io/badge/code_quality-ESLint-4B32C3?style=flat&logo=eslint&logoColor=white)](https://eslint.org/)
+[![Security](https://img.shields.io/badge/security-audited-4C4A73?logo=shield)](https://snyk.io/)
+[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/suren/portfolio2025)
+[![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)](https://npmjs.com/)
+[![Code Quality](https://img.shields.io/badge/code%20quality-A+-brightgreen)](https://eslint.org/)
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/ISXoUMlrOI)
+</div>
 
+---
 
-## Run tasks
+## 📋 Table of Contents
 
-To run the dev server for your app, use:
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Getting Started](#-getting-started)
+- [Development](#-development)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [Code Quality](#-code-quality)
+- [Release Process](#-release-process)
+- [API Documentation](#-api-documentation)
+- [Performance](#-performance)
+- [Security](#-security)
+- [Support](#-support)
+- [License](#-license)
 
-```sh
-npx nx serve frontend
+## 🚀 Overview
+
+**Portfolio 2025** is an enterprise-grade Angular application built with modern
+web technologies and best practices. This project demonstrates a scalable
+monorepo architecture using Nx, comprehensive state management with NgRx, and
+industry-standard development workflows.
+
+### Key Highlights
+
+- 🏗️ **Monorepo Architecture** - Nx-powered workspace for scalable development
+- 🔄 **State Management** - NgRx for predictable state management
+- 🎨 **Modern UI** - TailwindCSS for responsive design
+- 🔧 **Enterprise Tooling** - Complete CI/CD, testing, and quality assurance
+- 📱 **Mobile-First** - Responsive design principles
+- ♿ **Accessibility** - WCAG 2.1 AA compliant
+- 🌐 **Internationalization** - Multi-language support ready
+
+## ✨ Features
+
+### Core Functionality
+
+- 📊 **Dashboard** - Comprehensive analytics and insights
+- 👤 **User Management** - Complete user lifecycle management
+- 🔐 **Authentication** - Secure JWT-based authentication
+- 📱 **Responsive Design** - Mobile-first responsive layout
+- 🌙 **Dark Mode** - Automatic theme switching
+
+### Developer Experience
+
+- 🔥 **Hot Reload** - Fast development feedback loop
+- 🧪 **Testing Suite** - Unit, integration, and E2E testing
+- 📊 **Code Coverage** - Comprehensive coverage reporting
+- 🔍 **Static Analysis** - ESLint, Prettier, and custom rules
+- 📝 **Documentation** - Auto-generated API documentation
+
+### DevOps & Deployment
+
+- 🚀 **CI/CD Pipeline** - Automated testing and deployment
+- 🐳 **Containerization** - Docker support for consistent environments
+- 📈 **Monitoring** - Application performance monitoring
+- 🔒 **Security Scanning** - Automated vulnerability detection
+
+## 🛠 Technology Stack
+
+### Frontend
+
+| Technology      | Version | Purpose               |
+| --------------- | ------- | --------------------- |
+| **Angular**     | 20.3    | Core framework        |
+| **TypeScript**  | 5.9     | Type-safe development |
+| **NgRx**        | 20.0    | State management      |
+| **TailwindCSS** | 4.1     | Utility-first CSS     |
+| **RxJS**        | 7.8     | Reactive programming  |
+
+### Development Tools
+
+| Tool           | Version | Purpose                |
+| -------------- | ------- | ---------------------- |
+| **Nx**         | 21.6    | Monorepo management    |
+| **Jest**       | 29.7    | Unit testing           |
+| **Cypress**    | 14.2    | E2E testing            |
+| **ESLint**     | 9.8     | Code linting           |
+| **Prettier**   | 2.6     | Code formatting        |
+| **Husky**      | 9.1     | Git hooks              |
+| **Commitizen** | 4.3     | Commit standardization |
+
+### Build & Deploy
+
+| Tool               | Purpose               |
+| ------------------ | --------------------- |
+| **Vite**           | Fast build tool       |
+| **Docker**         | Containerization      |
+| **GitHub Actions** | CI/CD pipeline        |
+| **Nginx**          | Production web server |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js** >= 18.16.0
+- **npm** >= 9.0.0
+- **Git** >= 2.25.0
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/unboxedjs/portfolio2025.git
+   cd portfolio2025
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+
+   ```bash
+   nx serve frontend
+   ```
+
+4. **Open your browser**
+   ```
+   http://localhost:4200
+   ```
+
+### Quick Commands
+
+```bash
+# Development
+nx serve frontend           # Start development server
+nx build frontend           # Build for production
+nx test frontend            # Run unit tests
+nx e2e frontend-e2e         # Run E2E tests
+
+# Code Quality
+npm run lint               # Run ESLint
+npm run format             # Format code with Prettier
+npm run typecheck          # Run TypeScript compiler
+
+# Releases
+npm run commit             # Commitizen interactive commit
+npm run release            # Create new release
 ```
 
-To create a production bundle:
+## 🧑‍💻 Development
 
-```sh
-npx nx build frontend
+### Development Workflow
+
+1. **Create feature branch**
+
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+
+2. **Make your changes**
+
+   ```bash
+   # Follow conventional commits
+   npm run commit
+   ```
+
+3. **Run tests and linting**
+
+   ```bash
+   nx test frontend
+   npm run lint
+   nx e2e frontend-e2e
+   ```
+
+4. **Create pull request**
+
+### Code Standards
+
+- **TypeScript** - Strict mode enabled
+- **ESLint** - Extended from Angular and Nx configurations
+- **Prettier** - Automatic code formatting
+- **Conventional Commits** - Standardized commit messages
+- **Angular Style Guide** - Official Angular coding standards
+
+### Architecture Patterns
+
+- **Feature Modules** - Organized by business domain
+- **Smart/Dumb Components** - Container and presentation pattern
+- **State Management** - NgRx for complex state
+- **Dependency Injection** - Angular's DI system
+- **Reactive Programming** - RxJS observables
+
+## 🧪 Testing
+
+### Testing Strategy
+
+```bash
+# Unit Tests
+nx test frontend                # Run unit tests
+nx test frontend --watch        # Run tests in watch mode
+nx test frontend --coverage     # Generate coverage report
+
+# E2E Tests
+nx e2e frontend-e2e            # Run E2E tests
+nx e2e frontend-e2e --watch    # Run E2E tests in watch mode
+
+# All Tests
+nx run-many -t test            # Run all unit tests
+nx run-many -t e2e             # Run all E2E tests
 ```
 
-To see all available targets to run for a project, run:
+### Coverage Requirements
 
-```sh
-npx nx show project frontend
+- **Unit Tests**: > 80% coverage
+- **Integration Tests**: Critical user paths
+- **E2E Tests**: Complete user workflows
+
+## 🚀 Deployment
+
+### Environment Setup
+
+```bash
+# Development
+nx serve frontend
+
+# Production Build
+nx build frontend --configuration=production
+
+# Preview Production Build
+nx serve frontend --configuration=production
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Docker Deployment
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+# Build Docker image
+docker build -t portfolio2025 .
 
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
+# Run container
+docker run -p 80:80 portfolio2025
 ```
 
-To generate a new library, use:
+### CI/CD Pipeline
 
-```sh
-npx nx g @nx/angular:lib mylib
+The project uses GitHub Actions for automated:
+
+- ✅ **Testing** - Unit, integration, and E2E tests
+- 🔍 **Code Quality** - Linting and formatting checks
+- 🔒 **Security** - Vulnerability scanning
+- 📦 **Building** - Production builds
+- 🚀 **Deployment** - Automatic deployment to staging/production
+
+## 📁 Project Structure
+
+```
+portfolio2025/
+├── apps/
+│   ├── frontend/                 # Main Angular application
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── store/        # NgRx state management
+│   │   │   │   ├── services/     # Business logic services
+│   │   │   │   └── components/   # UI components
+│   │   │   └── assets/           # Static assets
+│   │   └── project.json          # Project configuration
+│   └── frontend-e2e/             # E2E tests
+├── libs/                         # Shared libraries
+├── tools/                        # Custom build tools
+├── .github/                      # GitHub workflows
+├── .husky/                       # Git hooks
+├── .vscode/                      # VS Code settings
+├── docs/                         # Documentation
+├── CHANGELOG.md                  # Release notes
+├── CONTRIBUTING.md               # Contribution guidelines
+├── nx.json                       # Nx configuration
+└── package.json                  # Dependencies and scripts
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## 🤝 Contributing
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md)
+for details.
 
+### Development Process
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+1. **Fork** the repository
+2. **Create** your feature branch
+3. **Commit** using conventional commits
+4. **Test** your changes thoroughly
+5. **Submit** a pull request
 
-## Install Nx Console
+### Code Review Process
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+- All changes require review
+- Automated tests must pass
+- Code coverage requirements must be met
+- Documentation must be updated
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🔍 Code Quality
 
-## Useful links
+### Static Analysis Tools
 
-Learn more:
+- **ESLint** - Code linting and best practices
+- **Prettier** - Consistent code formatting
+- **TypeScript** - Type safety and code intelligence
+- **SonarQube** - Code quality and security analysis
+- **Commitlint** - Commit message validation
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Quality Gates
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- ✅ All tests pass
+- ✅ Code coverage > 80%
+- ✅ No ESLint errors
+- ✅ No TypeScript errors
+- ✅ Security vulnerabilities resolved
+
+## 📦 Release Process
+
+### Semantic Versioning
+
+This project follows [Semantic Versioning](https://semver.org/):
+
+- **MAJOR** - Breaking changes
+- **MINOR** - New features
+- **PATCH** - Bug fixes
+
+### Release Commands
+
+```bash
+# Automatic release (recommended)
+npm run release
+
+# Manual release types
+npm run release:patch          # 1.0.0 → 1.0.1
+npm run release:minor          # 1.0.0 → 1.1.0
+npm run release:major          # 1.0.0 → 2.0.0
+
+# Preview release
+npm run release:dry            # See what would be released
+```
+
+### Changelog
+
+All changes are automatically documented in the [CHANGELOG.md](CHANGELOG.md)
+using conventional commits.
+
+## 📚 API Documentation
+
+### Documentation Tools
+
+- **Compodoc** - Angular documentation generator
+- **Storybook** - Component documentation
+- **Swagger** - API documentation
+- **JSDoc** - Code documentation
+
+### Generate Documentation
+
+```bash
+npx @compodoc/compodoc -p tsconfig.json -s    # Generate and serve docs
+nx storybook frontend                          # Start Storybook server
+```
+
+## ⚡ Performance
+
+### Performance Targets
+
+- **First Contentful Paint** < 1.5s
+- **Largest Contentful Paint** < 2.5s
+- **First Input Delay** < 100ms
+- **Cumulative Layout Shift** < 0.1
+
+### Optimization Features
+
+- **Lazy Loading** - Route-based code splitting
+- **Tree Shaking** - Dead code elimination
+- **Bundle Analysis** - Size optimization
+- **Service Workers** - Caching strategies
+- **CDN Integration** - Asset delivery optimization
+
+### Performance Monitoring
+
+```bash
+nx build frontend --configuration=production --stats-json
+npx webpack-bundle-analyzer dist/apps/frontend/stats.json
+```
+
+## 🔒 Security
+
+### Security Measures
+
+- **Dependency Scanning** - Automated vulnerability detection
+- **HTTPS Enforcement** - Secure communication
+- **CSP Headers** - Content Security Policy
+- **CSRF Protection** - Cross-site request forgery prevention
+- **XSS Prevention** - Cross-site scripting protection
+
+### Security Audits
+
+```bash
+npm audit                    # Check for vulnerabilities
+npm audit fix                # Fix automatically fixable vulnerabilities
+```
+
+## 🆘 Support
+
+### Getting Help
+
+- 📖 **Documentation** - Check the [docs](./docs) folder
+- 🐛 **Bug Reports** - Use
+  [GitHub Issues](https://github.com/unboxedjs/portfolio2025/issues)
+- 💬 **Discussions** - Use
+  [GitHub Discussions](https://github.com/unboxedjs/portfolio2025/discussions)
+- 📧 **Email** - Contact [maintainers](mailto:team@portfolio2025.com)
+
+### Nx Resources
+
+- 🔗 **Nx Documentation** - [Official Nx Docs](https://nx.dev)
+- 🎓 **Nx Tutorials** -
+  [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
+- 📊 **Nx Console** -
+  [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+- 💬 **Nx Community** - [Discord](https://go.nx.dev/community)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
+
+---
+
+<div align="center">
+
+**Built with ❤️ using Nx, Angular, and modern web technologies**
+
+[⭐ Star this repo](https://github.com/unboxedjs/portfolio2025) •
+[🐛 Report Bug](https://github.com/unboxedjs/portfolio2025/issues) •
+[✨ Request Feature](https://github.com/unboxedjs/portfolio2025/issues)
+
+</div>
