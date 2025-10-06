@@ -1,0 +1,235 @@
+name: CI/CD - Firebase Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  # Setup job - installs dependencies and caches for all other jobs
+  setup:
+    name: 📦 Setup & Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        id: cache-npm
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install dependencies
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci --legacy-peer-deps
+
+  # Lint job - runs in parallel with test and build
+  lint:
+    name: 🔍 Lint
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Lint all projects
+        run: npx nx run-many -t lint
+
+  # Test job - runs in parallel with lint and build
+  test:
+    name: 🧪 Test
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Run tests
+        run: npx nx run-many -t test --exclude=frontend
+
+  # Build job - runs in parallel with lint and test
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Build all projects
+        run: npx nx run-many -t build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            dist/
+            firebase.json
+            firestore.rules
+            firestore.indexes.json
+            storage.rules
+            remoteconfig.template.json
+          retention-days: 1
+
+  # Deploy preview - for pull requests (depends on lint, test, build)
+  deploy-preview:
+    name: 🚀 Deploy Preview
+    needs: [lint, test, build]
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: .
+
+      - name: Verify dist folder
+        run: ls -la dist/apps/frontend/ || echo "dist folder structure may be different"
+
+      - name: Deploy to Firebase Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNBOXEDJS_CORE }}
+          projectId: unboxedjs-core
+
+  # Deploy production - for master branch only (depends on lint, test, build)
+  deploy-production:
+    name: 🚀 Deploy Production
+    needs: [lint, test, build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: .
+
+      - name: Verify dist folder
+        run: ls -la dist/apps/ || echo "dist folder structure may be different"
+
+      - name: Deploy all Firebase services
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNBOXEDJS_CORE }}
+          channelId: live
+          projectId: unboxedjs-core
+
+      - name: Deploy Functions and other services
+        run: |
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNBOXEDJS_CORE }}' > $HOME/gcp-key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcp-key.json
+          npx firebase-tools deploy --only functions,firestore,storage --project unboxedjs-core --non-interactive
+
+  # E2E tests - optional, runs after deployment
+  e2e:
+    name: 🎭 E2E Tests
+    needs: deploy-production
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run E2E tests
+        continue-on-error: true
+        run: npx nx run-many -t e2e || echo "E2E tests failed but continuing..."
