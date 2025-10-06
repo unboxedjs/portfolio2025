@@ -1,0 +1,20 @@
+<li class="my-[5vw] mx-[5vw] conversation-item {{ wrapperClasses() }}" [attr.data-index]="index()">
+  <div
+    class="w-fit max-w-[70%] px-[3vw] py-[2vw] flex flex-col items-center {{ customClasses() }}"
+    [class.bg-[#303030]]="position() === 'left'"
+    [class.bg-[#1e1e1e]]="position() === 'right'"
+    [class.rounded-[4vw_4vw_4vw_0]]="position() === 'left'"
+    [class.rounded-[4vw_4vw_0_4vw]]="position() === 'right'"
+    [class.ml-auto]="position() === 'right'"
+    [class.text-end]="position() === 'right'"
+    [class.opacity-0]="!isInViewport()"
+    [class.animate-slide-up]="isInViewport()"
+  >
+    @if (isVisible()) {
+    <ng-content></ng-content>
+    } @else {
+    <div class="typing-skeleton"><span></span><span></span><span></span></div>
+    }
+  </div>
+  <ng-content select="[slot=extra]"></ng-content>
+</li>

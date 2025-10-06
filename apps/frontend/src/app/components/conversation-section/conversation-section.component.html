@@ -1,0 +1,369 @@
+<ul
+  class="font-bogart text-[2vw] max-[667px]:text-[3.3vw] text-[#a7a7a7] mt-[15vw] max-[667px]:mt-[20vw] min-[668px]:max-[1024px]:mt-[12vw]"
+>
+  <!-- Introduction Message -->
+  <app-chat-bubble
+    [index]="0"
+    position="left"
+    [isVisible]="isVisible(0)"
+    [isInViewport]="isInViewport(0)"
+  >
+    Let's start with a quick intro, shall we?
+  </app-chat-bubble>
+
+  <!-- About Me -->
+  <app-chat-bubble
+    [index]="1"
+    position="right"
+    [isVisible]="isVisible(1)"
+    [isInViewport]="isInViewport(1)"
+  >
+    I'm passionate about exploring new technology <br />
+    and building innovative solutions. <br />
+    As an online instructor, I combine my love for coding with teaching others.
+  </app-chat-bubble>
+
+  <!-- Metrics Request -->
+  <app-chat-bubble
+    [index]="2"
+    position="left"
+    [isVisible]="isVisible(2)"
+    [isInViewport]="isInViewport(2)"
+  >
+    Sounds good... but let's see some numbers!
+  </app-chat-bubble>
+
+  <!-- Alright Response -->
+  <app-chat-bubble
+    [index]="3"
+    position="right"
+    [isVisible]="isVisible(3)"
+    [isInViewport]="isInViewport(3)"
+    wrapperClasses="relative"
+  >
+    Fair enough. Here's what I've accomplished:
+    <ng-lottie
+      slot="extra"
+      class="absolute ml-[5vw] w-[50vw] max-w-[800px] brightness-[0.2]"
+      [options]="work"
+    ></ng-lottie>
+  </app-chat-bubble>
+
+  <!-- Experience -->
+  <app-chat-bubble
+    [index]="4"
+    position="right"
+    [isVisible]="isVisible(4)"
+    [isInViewport]="isInViewport(4)"
+  >
+    <span
+      class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
+      style="text-shadow: 2px 2px 4px black"
+      >10</span
+    >
+    Years of Experience
+  </app-chat-bubble>
+
+  <!-- Projects -->
+  <app-chat-bubble
+    [index]="5"
+    position="right"
+    [isVisible]="isVisible(5)"
+    [isInViewport]="isInViewport(5)"
+  >
+    <span
+      class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
+      style="text-shadow: 2px 2px 4px black"
+      >18</span
+    >
+    Projects
+  </app-chat-bubble>
+
+  <!-- Udemy Courses -->
+  <app-chat-bubble
+    [index]="6"
+    position="right"
+    [isVisible]="isVisible(6)"
+    [isInViewport]="isInViewport(6)"
+  >
+    <span
+      class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
+      style="text-shadow: 2px 2px 4px black"
+      >2</span
+    >
+    Udemy Courses
+  </app-chat-bubble>
+
+  <!-- Summary -->
+  <app-chat-bubble
+    [index]="7"
+    position="right"
+    [isVisible]="isVisible(7)"
+    [isInViewport]="isInViewport(7)"
+  >
+    Plus some YouTube content — <br />
+    that's me in a nutshell.
+  </app-chat-bubble>
+
+  <!-- Is that all? -->
+  <app-chat-bubble
+    [index]="8"
+    position="left"
+    [isVisible]="isVisible(8)"
+    [isInViewport]="isInViewport(8)"
+  >
+    That's it?
+  </app-chat-bubble>
+
+  <!-- Almost forgot -->
+  <app-chat-bubble
+    [index]="9"
+    position="right"
+    [isVisible]="isVisible(9)"
+    [isInViewport]="isInViewport(9)"
+  >
+    Oh wait, I almost forgot...
+  </app-chat-bubble>
+
+  <!-- Upwork Badge -->
+  <app-chat-bubble
+    [index]="10"
+    position="right"
+    [isVisible]="isVisible(10)"
+    [isInViewport]="isInViewport(10)"
+    customClasses="flex-row justify-end text-[#14a800]"
+  >
+    Upwork <span class="text-[#408eb0] uppercase text-sm ml-1">Top Rated Plus</span>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.upwork.com/freelancers/~01969204f1b1dd4476"
+      class="ml-2"
+    >
+      <img src="/upwork_top.png" class="w-[12vw]" alt="Upwork Top Rated" />
+    </a>
+  </app-chat-bubble>
+
+  <!-- AWS Badges -->
+  <app-chat-bubble
+    [index]="11"
+    position="right"
+    [isVisible]="isVisible(11)"
+    [isInViewport]="isInViewport(11)"
+  >
+    <span class="flex flex-row self-end">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.credly.com/badges/e3728777-c37a-49dd-889e-5aef901ea0e7/public_url"
+      >
+        <img
+          src="/aws_practice.png"
+          class="w-[10vw] max-[667px]:w-[18vw] brightness-[0.8]"
+          alt="AWS Cloud Practitioner"
+        />
+      </a>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.credly.com/badges/e5953b4b-6b71-4938-93e6-000020866dd9/public_url"
+      >
+        <img
+          src="/aws_dev.png"
+          class="w-[10vw] max-[667px]:w-[18vw] brightness-[0.8]"
+          alt="AWS Developer"
+        />
+      </a>
+      <img
+        src="/aws_solution.png"
+        class="w-[10vw] max-[667px]:w-[18vw] opacity-40"
+        alt="AWS Solutions Architect"
+      />
+    </span>
+  </app-chat-bubble>
+
+  <!-- Wow -->
+  <app-chat-bubble
+    [index]="12"
+    position="left"
+    [isVisible]="isVisible(12)"
+    [isInViewport]="isInViewport(12)"
+  >
+    Wow..
+  </app-chat-bubble>
+
+  <!-- Udemy Links Request -->
+  <app-chat-bubble
+    [index]="13"
+    position="left"
+    [isVisible]="isVisible(13)"
+    [isInViewport]="isInViewport(13)"
+  >
+    Can you share those udemy course links?
+  </app-chat-bubble>
+
+  <!-- Udemy Courses Cards -->
+  <li
+    class="my-[5vw] mx-[5vw] flex conversation-item"
+    data-index="14"
+    style="display: flex !important; min-height: auto !important"
+  >
+    <div
+      class="w-fit max-w-[70%] px-[3vw] py-[2vw] flex flex-col items-center bg-[#1e1e1e] rounded-[4vw_4vw_0_4vw] ml-auto text-end max-[667px]:text-center cursor-pointer hover:shadow-[0.5vw_1vw_2.5vw_black] hover:scale-110"
+      [class.opacity-0]="!isInViewport(14)"
+      [class.animate-slide-up]="isInViewport(14)"
+      style="transition: all 0.15s ease-in-out"
+      role="button"
+      tabindex="0"
+      (click)="goToUrl('angularnest')"
+      (keydown.enter)="goToUrl('angularnest')"
+      (keydown.space)="goToUrl('angularnest')"
+    >
+      Angular Nest Architect <br />
+      Master Class
+      <img
+        src="/udemy/angularnest.jpg"
+        class="mt-[2vw] w-[10vw] max-[667px]:w-[30vw] rounded-[2vw] max-[667px]:rounded-[4vw] self-start max-[667px]:self-center"
+        alt="Angular Nest Course"
+      />
+      <span class="self-end text-[1vw] max-[667px]:hidden">12 Hours</span>
+    </div>
+    <div
+      class="w-fit max-w-[70%] px-[3vw] py-[2vw] flex flex-col items-center bg-[#1e1e1e] rounded-[4vw_4vw_0_4vw] ml-[5vw] text-end max-[667px]:text-center cursor-pointer hover:shadow-[0.5vw_1vw_2.5vw_black] hover:scale-110"
+      [class.opacity-0]="!isInViewport(14)"
+      [class.animate-slide-up]="isInViewport(14)"
+      style="transition: all 0.15s ease-in-out"
+      role="button"
+      tabindex="0"
+      (click)="goToUrl()"
+      (keydown.enter)="goToUrl()"
+      (keydown.space)="goToUrl()"
+    >
+      Automation Tests with <br />
+      Jasmine & Karma
+      <img
+        src="/udemy/jasmine.jpg"
+        class="mt-[2vw] w-[10vw] max-[667px]:w-[30vw] rounded-[2vw] max-[667px]:rounded-[4vw] self-start max-[667px]:self-center"
+        alt="Jasmine Karma Course"
+      />
+      <span class="self-end text-[1vw] max-[667px]:hidden">3 Hours</span>
+    </div>
+  </li>
+
+  <!-- Reach Question -->
+  <app-chat-bubble
+    [index]="15"
+    position="left"
+    [isVisible]="isVisible(15)"
+    [isInViewport]="isInViewport(15)"
+  >
+    How's the reach so far?
+  </app-chat-bubble>
+
+  <!-- YouTube Stats -->
+  <app-chat-bubble
+    [index]="16"
+    position="right"
+    [isVisible]="isVisible(16)"
+    [isInViewport]="isInViewport(16)"
+    customClasses="flex-row"
+  >
+    <section
+      class="flex flex-col items-center justify-center mr-[2vw] pr-[2vw] border-r-2 border-[#303030]"
+    >
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >240</span
+      >
+      <small>Subscribers</small>
+    </section>
+    <section
+      class="flex flex-col items-center justify-center mr-[2vw] pr-[2vw] border-r-2 border-[#303030]"
+    >
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >280</span
+      >
+      <small>Watch Hours</small>
+    </section>
+    <section class="flex flex-col items-center justify-center">
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >10.9 k</span
+      >
+      <small>Views</small>
+    </section>
+  </app-chat-bubble>
+
+  <!-- Udemy Stats -->
+  <app-chat-bubble
+    [index]="17"
+    position="right"
+    [isVisible]="isVisible(17)"
+    [isInViewport]="isInViewport(17)"
+    customClasses="flex-row"
+  >
+    <section
+      class="flex flex-col items-center justify-center mr-[2vw] pr-[2vw] border-r-2 border-[#303030]"
+    >
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >659</span
+      >
+      <small>Students</small>
+    </section>
+    <section
+      class="flex flex-col items-center justify-center mr-[2vw] pr-[2vw] border-r-2 border-[#303030]"
+    >
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >3.5</span
+      >
+      <small>Rating</small>
+    </section>
+    <section class="flex flex-col items-center justify-center">
+      <span
+        class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
+        style="text-shadow: 2px 2px 4px black"
+        >122</span
+      >
+      <small>Reviews</small>
+    </section>
+  </app-chat-bubble>
+
+  <!-- Encouragement -->
+  <app-chat-bubble
+    [index]="18"
+    position="left"
+    [isVisible]="isVisible(18)"
+    [isInViewport]="isInViewport(18)"
+  >
+    Impressive start! Keep it up!
+  </app-chat-bubble>
+
+  <!-- Contact Question -->
+  <app-chat-bubble
+    [index]="19"
+    position="left"
+    [isVisible]="isVisible(19)"
+    [isInViewport]="isInViewport(19)"
+  >
+    I'd like to work with you. How can I get in touch?
+  </app-chat-bubble>
+
+  <!-- Email Link -->
+  <app-chat-bubble
+    [index]="20"
+    position="right"
+    [isVisible]="isVisible(20)"
+    [isInViewport]="isInViewport(20)"
+    customClasses="cursor-pointer transition-all duration-100 hover:shadow-[0.5vw_1vw_2.5vw_black] hover:scale-110"
+  >
+    <a href="mailto:suren@unboxedjs.com" class="no-underline text-[#a7a7a7]">suren@unboxedjs.com</a>
+  </app-chat-bubble>
+</ul>

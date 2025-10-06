@@ -1,4 +1,7 @@
 {
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": ["nx-mcp"],
-  "enableAllProjectMcpServers": true
+  "permissions": {
+    "allow": ["Read(//c/Users/suren/codebase/personal/portfolio/src/app/**)"]
+  }
 }

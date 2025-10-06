@@ -1,0 +1,6 @@
+/* Component-specific styles if needed beyond Tailwind */
+
+/* Prevent CLS from typewriter effect */
+:host {
+  contain: layout;
+}

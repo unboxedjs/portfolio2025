@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.conversation-item {
+  min-height: 60px;
+  display: block;
+}
+
+.conversation-item > div {
+  transition: opacity 0.3s ease-in-out;
+  visibility: visible !important;
+}
+
+.conversation-item > div.opacity-0 {
+  opacity: 0;
+  visibility: hidden;
+}

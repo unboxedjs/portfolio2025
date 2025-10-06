@@ -1,0 +1,29 @@
+/* Footer distinct background */
+:host {
+  display: block;
+  background-color: #1a1a1a;
+  flex-grow: 1;
+}
+
+:host-context(body.light) {
+  background-color: #e0e0e0;
+}
+
+footer {
+  min-height: 300px;
+}
+
+/* Social media link animations */
+footer a {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+footer a:hover {
+  transform: translateY(-4px) scale(1.1);
+  opacity: 0.8;
+}
+
+footer a:active {
+  transform: translateY(-2px) scale(1.05);
+}

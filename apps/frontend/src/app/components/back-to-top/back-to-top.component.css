@@ -1,0 +1,72 @@
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  animation: slideUp 0.3s ease-out;
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light mode */
+:host-context(body.light) .back-to-top-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+
+:host-context(body.light) .back-to-top-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 667px) {
+  .back-to-top-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}

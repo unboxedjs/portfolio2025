@@ -52,13 +52,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
 
   // Files settings
-  "files.exclude": {
-    "**/node_modules": true,
-    "**/dist": true,
-    "**/coverage": true,
-    "**/.nx": true,
-    "**/.angular": true
-  },
   "files.associations": {
     "*.html": "html"
   },

@@ -27,8 +27,8 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "700kb",
+              "maximumError": "1.2mb"
             },
             {
               "type": "anyComponentStyle",
@@ -36,7 +36,9 @@
               "maximumError": "8kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "serviceWorker": "apps/frontend/src/ngsw-config.json",
+          "allowedCommonJsDependencies": ["lottie-web"]
         },
         "development": {
           "optimization": false,

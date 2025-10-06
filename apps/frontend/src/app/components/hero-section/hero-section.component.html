@@ -1,0 +1,80 @@
+<div class="relative max-[667px]:pb-[25vw]">
+  <!-- Header Image -->
+  <div class="relative">
+    <img [src]="headerImage" class="w-full" alt="Header" width="1536" height="444" />
+    <!-- Gradient overlay for smooth blend -->
+    <div
+      class="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-b from-transparent to-[#252425] pointer-events-none"
+    ></div>
+  </div>
+
+  <!-- Separator Dash -->
+  <img
+    src="/dash1.svg"
+    class="absolute w-full top-[400px] max-[667px]:top-[18vh] min-[668px]:max-[1024px]:top-[250px] z-10"
+    alt="Separator"
+    width="1536"
+    height="444"
+  />
+
+  <!-- Twinkling particles - above image -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden z-20">
+    <div class="twinkle" style="top: 15%; left: 10%; animation-delay: 0s"></div>
+    <div class="twinkle" style="top: 25%; left: 85%; animation-delay: 0.5s"></div>
+    <div class="twinkle" style="top: 40%; left: 20%; animation-delay: 1s"></div>
+    <div class="twinkle" style="top: 50%; left: 75%; animation-delay: 1.5s"></div>
+    <div class="twinkle" style="top: 65%; left: 15%; animation-delay: 2s"></div>
+    <div class="twinkle" style="top: 70%; left: 90%; animation-delay: 2.5s"></div>
+    <div class="twinkle" style="top: 80%; left: 60%; animation-delay: 3s"></div>
+    <div class="twinkle" style="top: 35%; left: 50%; animation-delay: 0.8s"></div>
+    <div class="twinkle" style="top: 55%; left: 40%; animation-delay: 1.8s"></div>
+    <div class="twinkle" style="top: 20%; left: 65%; animation-delay: 2.3s"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <ul
+    class="absolute top-[20vw] max-[667px]:text-[3.3vw] max-[667px]:top-[25vw] min-[668px]:max-[1024px]:top-[22vw] w-full z-30"
+  >
+    <!-- Name Introduction -->
+    <li class="w-fit px-[3vw] py-[1vh] mx-[12vw] my-[1vh] max-[667px]:py-[1.5vh]">
+      <p
+        class="font-[Sacramento] text-[#f8f8f8] text-[6vw] max-[667px]:text-[10vw] max-[667px]:text-[#008000]"
+        style="text-shadow: 2px 2px 4px black"
+      >
+        I'm Surën
+      </p>
+      <p
+        class="text-[1.5vw] tracking-[0.3vw] font-normal max-[667px]:text-[2.2vw] max-[667px]:tracking-[0.5vw] min-h-[2em] inline-block min-w-[25ch]"
+        style="font-variant: small-caps"
+      >
+        {{ displayedText()
+        }}<span
+          class="inline-block w-[2px] h-[1em] bg-[#f8f8f8] ml-1 align-middle"
+          [class.opacity-0]="!showCursor()"
+        ></span>
+      </p>
+    </li>
+
+    <!-- Logo and UnboxedJS -->
+    <li
+      class="w-fit px-[3vw] py-[1vh] mx-[12vw] my-[1vh] flex items-center ml-auto text-end max-[667px]:py-[1.5vh]"
+    >
+      <p class="mr-[3vw] animate-slide-in" style="animation-delay: 1s; animation-fill-mode: both">
+        and this is
+        <span
+          class="font-[Sacramento] text-[#f8f8f8] max-[667px]:text-[#008000] text-[5vw]"
+          style="text-shadow: 2px 2px 4px black"
+          >unboxedJS</span
+        >
+      </p>
+      <img
+        src="/logo.svg"
+        class="w-[8vw] max-[667px]:w-[12vw] animate-slide-in"
+        style="animation-delay: 1.2s; animation-fill-mode: both"
+        alt="UnboxedJS Logo"
+        width="100"
+        height="100"
+      />
+    </li>
+  </ul>
+</div>

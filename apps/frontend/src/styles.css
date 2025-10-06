@@ -1,2 +1,340 @@
-/* You can add global styles to this file, and also import other style files */
+/* TailwindCSS 4.x Configuration */
 @import 'tailwindcss';
+
+/* Custom Font Faces */
+@font-face {
+  font-family: 'Bogart';
+  src: url('/fonts/bogart-med.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sacramento';
+  src: url('/fonts/Sacramento-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* Theme Configuration */
+@theme {
+  --font-family-cursive: 'Sacramento', cursive;
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-bogart: 'Bogart', sans-serif;
+
+  /* Dark Theme Colors */
+  --color-dark-900: #0a0a0a;
+  --color-dark-800: #1a1a1a;
+  --color-dark-700: #2a2a2a;
+  --color-dark-600: #3a3a3a;
+  --color-dark-500: #4a4a4a;
+
+  /* Green Brand Colors */
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+
+  /* Gray Scale for Dark Theme */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #252425;
+  color: #ffffff;
+  user-select: none;
+  outline: transparent;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme Styles */
+body.light {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+}
+
+/* Softer shadows for light mode */
+body.light [style*='text-shadow'] {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.light [class*='hover:shadow-'] {
+  --tw-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* AWS badges brightness in light mode */
+body.light img[src*='aws_'] {
+  filter: brightness(1) contrast(1.1);
+}
+
+/* Light mode lottie adjustments */
+body.light ng-lottie {
+  filter: brightness(1.5) contrast(0.9);
+}
+
+/* Dash SVG styling */
+img[src*='dash1.svg'] {
+  opacity: 0.6;
+}
+
+/* Light mode dash SVG color - more subtle */
+body.light img[src*='dash1.svg'] {
+  opacity: 0.3;
+  filter: brightness(0) saturate(100%) invert(96%) sepia(3%) saturate(289%) hue-rotate(202deg)
+    brightness(98%) contrast(96%);
+}
+
+/* Light mode gradient overlays */
+body.light .bg-gradient-to-b.from-transparent.to-\[\#252425\] {
+  background: linear-gradient(to bottom, transparent, #f5f5f5) !important;
+}
+
+body.light .bg-\[\#252425\] {
+  background-color: #f5f5f5 !important;
+}
+
+body.light .bg-\[\#303030\] {
+  background-color: #e0e0e0 !important;
+}
+
+body.light .bg-\[\#1e1e1e\] {
+  background-color: #ffffff !important;
+  border: 1px solid #e0e0e0;
+}
+
+body.light .text-\[\#a7a7a7\] {
+  color: #4a4a4a !important;
+}
+
+body.light .text-\[\#f8f8f8\] {
+  color: #1a1a1a !important;
+}
+
+body.light .text-\[\#5c5c5c\] {
+  color: #6b7280 !important;
+}
+
+body.light .text-\[\#c8c8c8\] {
+  color: #374151 !important;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+/* List Styles for Portfolio */
+ul {
+  font-family: 'Bogart', sans-serif;
+  font-size: 2vw;
+  color: #a7a7a7;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Improved Responsive Typography */
+@media (max-width: 768px) {
+  ul {
+    font-size: 3.3vw;
+  }
+}
+
+@media (min-width: 1920px) {
+  ul {
+    font-size: clamp(1rem, 2vw, 2.5rem);
+  }
+}
+
+/* Custom Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Disable transitions for font and color changes */
+*:not(a):not(button):not([role='button']) {
+  transition-property: transform, box-shadow;
+}
+
+/* Smooth Scroll for Anchor Links */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Twinkling particles */
+.twinkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(248, 248, 248, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(248, 248, 248, 0.8);
+  animation: twinkle-animation 3s ease-in-out infinite;
+}
+
+@keyframes twinkle-animation {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Conversation scroll animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Prevent CLS from conversation items */
+.conversation-item {
+  min-height: 100px;
+  contain: layout;
+}
+
+/* Typing skeleton */
+.typing-skeleton {
+  display: flex;
+  gap: 5px;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.typing-skeleton span {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: typing-dot 1.4s infinite ease-in-out;
+}
+
+.typing-skeleton span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-skeleton span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
