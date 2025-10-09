@@ -59,7 +59,7 @@
     <span
       class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
       style="text-shadow: 2px 2px 4px black"
-      >10</span
+      >{{ config().statsYearsExperience }}</span
     >
     Years of Experience
   </app-chat-bubble>
@@ -74,7 +74,7 @@
     <span
       class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
       style="text-shadow: 2px 2px 4px black"
-      >18</span
+      >{{ config().statsProjects }}</span
     >
     Projects
   </app-chat-bubble>
@@ -89,7 +89,7 @@
     <span
       class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw] mr-[2px]"
       style="text-shadow: 2px 2px 4px black"
-      >2</span
+      >{{ config().statsUdemyCourses }}</span
     >
     Udemy Courses
   </app-chat-bubble>
@@ -134,12 +134,7 @@
     customClasses="flex-row justify-end text-[#14a800]"
   >
     Upwork <span class="text-[#408eb0] uppercase text-sm ml-1">Top Rated Plus</span>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.upwork.com/freelancers/~01969204f1b1dd4476"
-      class="ml-2"
-    >
+    <a target="_blank" rel="noopener noreferrer" [href]="config().upworkUrl" class="ml-2">
       <img src="/upwork_top.png" class="w-[12vw]" alt="Upwork Top Rated" />
     </a>
   </app-chat-bubble>
@@ -274,7 +269,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >240</span
+        >{{ config().youtubeSubscribers }}</span
       >
       <small>Subscribers</small>
     </section>
@@ -284,7 +279,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >280</span
+        >{{ config().youtubeWatchHours }}</span
       >
       <small>Watch Hours</small>
     </section>
@@ -292,7 +287,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >10.9 k</span
+        >{{ config().youtubeViews }}</span
       >
       <small>Views</small>
     </section>
@@ -312,7 +307,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >659</span
+        >{{ config().udemyStudents }}</span
       >
       <small>Students</small>
     </section>
@@ -322,7 +317,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >3.5</span
+        >{{ config().udemyRating }}</span
       >
       <small>Rating</small>
     </section>
@@ -330,7 +325,7 @@
       <span
         class="font-[Sacramento] text-[#f8f8f8] text-[3vw] md:text-[5vw]"
         style="text-shadow: 2px 2px 4px black"
-        >122</span
+        >{{ config().udemyReviews }}</span
       >
       <small>Reviews</small>
     </section>
@@ -364,6 +359,8 @@
     [isInViewport]="isInViewport(20)"
     customClasses="cursor-pointer transition-all duration-100 hover:shadow-[0.5vw_1vw_2.5vw_black] hover:scale-110"
   >
-    <a href="mailto:suren@unboxedjs.com" class="no-underline text-[#a7a7a7]">suren@unboxedjs.com</a>
+    <a [href]="'mailto:' + config().contactEmail" class="no-underline text-[#a7a7a7]">{{
+      config().contactEmail
+    }}</a>
   </app-chat-bubble>
 </ul>

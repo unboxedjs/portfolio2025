@@ -1,1 +1,99 @@
-{}
+{
+  "parameters": {
+    "stats_years_experience": {
+      "defaultValue": {
+        "value": "10"
+      }
+    },
+    "stats_projects": {
+      "defaultValue": {
+        "value": "18"
+      }
+    },
+    "stats_udemy_courses": {
+      "defaultValue": {
+        "value": "2"
+      }
+    },
+    "youtube_subscribers": {
+      "defaultValue": {
+        "value": "240"
+      }
+    },
+    "youtube_views": {
+      "defaultValue": {
+        "value": "10.9k"
+      }
+    },
+    "youtube_watch_hours": {
+      "defaultValue": {
+        "value": "280"
+      }
+    },
+    "udemy_students": {
+      "defaultValue": {
+        "value": "659"
+      }
+    },
+    "udemy_rating": {
+      "defaultValue": {
+        "value": "3.5"
+      }
+    },
+    "udemy_reviews": {
+      "defaultValue": {
+        "value": "122"
+      }
+    },
+    "udemy_jasmine_url": {
+      "defaultValue": {
+        "value": "https://www.udemy.com/course/angular-unit-testing-with-jasmine-karma/"
+      }
+    },
+    "udemy_angularnest_url": {
+      "defaultValue": {
+        "value": "https://www.udemy.com/course/angularnest/?referralCode=80CA9F9919C75A5A3973"
+      }
+    },
+    "social_twitter": {
+      "defaultValue": {
+        "value": "https://twitter.com/unboxedjs"
+      }
+    },
+    "social_youtube": {
+      "defaultValue": {
+        "value": "https://www.youtube.com/channel/UCob_lLtu_hj80nHduNzzQiw"
+      }
+    },
+    "social_facebook": {
+      "defaultValue": {
+        "value": "https://www.facebook.com/kvsuren/"
+      }
+    },
+    "social_instagram": {
+      "defaultValue": {
+        "value": "https://www.instagram.com/unboxedjs/"
+      }
+    },
+    "social_linkedin": {
+      "defaultValue": {
+        "value": "https://www.linkedin.com/in/unboxedjs/"
+      }
+    },
+    "social_buymeacoffee": {
+      "defaultValue": {
+        "value": "https://www.buymeacoffee.com/unboxedjs"
+      }
+    },
+    "contact_email": {
+      "defaultValue": {
+        "value": "suren@unboxedjs.com"
+      }
+    },
+    "upwork_url": {
+      "defaultValue": {
+        "value": "https://www.upwork.com/freelancers/~01969204f1b1dd4476"
+      }
+    }
+  }
+}

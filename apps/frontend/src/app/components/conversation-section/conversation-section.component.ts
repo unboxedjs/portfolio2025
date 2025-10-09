@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 import { ChatBubbleComponent } from '../chat-bubble/chat-bubble';
+import { RemoteConfigService } from '../../services/remote-config.service';
 
 @Component({
   selector: 'app-conversation-section',
@@ -11,6 +12,8 @@ import { ChatBubbleComponent } from '../chat-bubble/chat-bubble';
   styleUrl: './conversation-section.component.css',
 })
 export class ConversationSectionComponent implements OnInit, OnDestroy {
+  private remoteConfig = inject(RemoteConfigService);
+  config = this.remoteConfig.config;
   work: AnimationOptions = {
     path: '/ae/work.json',
   };
@@ -109,9 +112,7 @@ export class ConversationSectionComponent implements OnInit, OnDestroy {
 
   goToUrl(type = 'jasmine') {
     const siteUrl =
-      type === 'jasmine'
-        ? 'https://www.udemy.com/course/angular-unit-testing-with-jasmine-karma/'
-        : 'https://www.udemy.com/course/angularnest/?referralCode=80CA9F9919C75A5A3973';
+      type === 'jasmine' ? this.config().udemyJasmineUrl : this.config().udemyAngularnestUrl;
     window.open(siteUrl, '_blank');
   }
 }

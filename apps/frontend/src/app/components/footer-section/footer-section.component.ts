@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RemoteConfigService } from '../../services/remote-config.service';
 
 @Component({
   selector: 'app-footer-section',
@@ -8,4 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './footer-section.component.html',
   styleUrl: './footer-section.component.css',
 })
-export class FooterSectionComponent {}
+export class FooterSectionComponent {
+  private remoteConfig = inject(RemoteConfigService);
+  config = this.remoteConfig.config;
+}

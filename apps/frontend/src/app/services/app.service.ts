@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { Injectable, inject } from '@angular/core';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { RemoteConfigService } from './remote-config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
+  private remoteConfig = inject(RemoteConfigService);
+
   initializeApp(): Observable<void> {
-    // Simulate app initialization (e.g., loading configuration, user session, etc.)
-    return of(void 0).pipe(
-      delay(1500) // Simulate async operation
-    );
+    return from(this.remoteConfig.initialize()).pipe(map(() => void 0));
   }
 }
