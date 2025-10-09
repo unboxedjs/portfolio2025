@@ -5,14 +5,6 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "functions": [
-    {
-      "source": "dist/apps/functions",
-      "codebase": "default",
-      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"],
-      "predeploy": ["npx nx build functions", "npx nx lint functions"]
-    }
-  ],
   "hosting": {
     "public": "dist/apps/frontend/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
@@ -26,5 +18,10 @@
   "remoteconfig": {
     "template": "remoteconfig.template.json"
   },
-  "extensions": {}
+  "extensions": {},
+  "emulators": {
+    "ui": {
+      "enabled": true
+    }
+  }
 }

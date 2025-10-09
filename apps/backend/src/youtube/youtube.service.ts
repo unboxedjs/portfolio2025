@@ -1,5 +1,3 @@
-// YouTube Data API v3 configuration
-const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 const YOUTUBE_CHANNEL_ID = 'UCob_lLtu_hj80nHduNzzQiw';
 
 export interface YouTubeChannelStats {
@@ -158,9 +156,10 @@ export class YouTubeService {
   }
 
   static async create(): Promise<YouTubeService> {
-    if (!YOUTUBE_API_KEY) {
+    const apiKey = process.env.YOUTUBE_API_KEY;
+    if (!apiKey) {
       throw new Error('YOUTUBE_API_KEY environment variable is not set');
     }
-    return new YouTubeService(YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID);
+    return new YouTubeService(apiKey, YOUTUBE_CHANNEL_ID);
   }
 }

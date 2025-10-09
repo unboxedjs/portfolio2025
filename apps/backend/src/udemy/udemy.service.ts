@@ -1,7 +1,3 @@
-// For development/testing, you can set this in .env.local
-// For production, set it via Firebase Console > Functions > Configuration
-const UDEMY_API_TOKEN = process.env.UDEMY_API_TOKEN || '';
-
 export interface UdemyCourse {
   id: string;
   title: string;
@@ -107,9 +103,10 @@ export class UdemyService {
   }
 
   static async create(): Promise<UdemyService> {
-    if (!UDEMY_API_TOKEN) {
+    const apiToken = process.env.UDEMY_API_TOKEN;
+    if (!apiToken) {
       throw new Error('UDEMY_API_TOKEN environment variable is not set');
     }
-    return new UdemyService(UDEMY_API_TOKEN);
+    return new UdemyService(apiToken);
   }
 }

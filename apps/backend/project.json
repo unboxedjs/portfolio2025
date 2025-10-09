@@ -1,7 +1,7 @@
 {
-  "name": "functions",
+  "name": "backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/functions/src",
+  "sourceRoot": "apps/backend/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -9,9 +9,9 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/functions",
-        "main": "apps/functions/src/main.ts",
-        "tsConfig": "apps/functions/tsconfig.app.json",
+        "outputPath": "dist/apps/backend",
+        "main": "apps/backend/src/main.ts",
+        "tsConfig": "apps/backend/tsconfig.app.json",
         "assets": [],
         "generatePackageJson": true
       }
@@ -21,8 +21,8 @@
       "cache": true,
       "executor": "@nx/js:prune-lockfile",
       "outputs": [
-        "{workspaceRoot}/dist/apps/functions/package.json",
-        "{workspaceRoot}/dist/apps/functions/package-lock.json"
+        "{workspaceRoot}/dist/apps/backend/package.json",
+        "{workspaceRoot}/dist/apps/backend/package-lock.json"
       ],
       "options": {
         "buildTarget": "build"
@@ -31,7 +31,7 @@
     "copy-workspace-modules": {
       "dependsOn": ["build"],
       "cache": true,
-      "outputs": ["{workspaceRoot}/dist/apps/functions/workspace_modules"],
+      "outputs": ["{workspaceRoot}/dist/apps/backend/workspace_modules"],
       "executor": "@nx/js:copy-workspace-modules",
       "options": {
         "buildTarget": "build"
@@ -44,21 +44,22 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "firebase emulators:start --only functions"
+        "command": "ts-node --project tsconfig.dev.json src/main.ts",
+        "cwd": "apps/backend"
       }
     },
     "deploy": {
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
       "options": {
-        "command": "firebase deploy --only functions"
+        "command": "echo 'Backend deployment not configured - use Docker or your preferred deployment method'"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/functions/jest.config.ts",
+        "jestConfig": "apps/backend/jest.config.ts",
         "passWithNoTests": true
       }
     }

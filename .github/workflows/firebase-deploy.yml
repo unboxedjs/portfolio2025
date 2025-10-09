@@ -210,11 +210,11 @@ jobs:
           channelId: live
           projectId: unboxedjs-core
 
-      - name: Deploy Firestore and Remote Config
+      - name: Deploy Remote Config
         run: |
           echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNBOXEDJS_CORE }}' > $HOME/gcp-key.json
           export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcp-key.json
-          npx firebase-tools deploy --only firestore,remoteconfig --project unboxedjs-core --non-interactive
+          npx firebase-tools deploy --only remoteconfig --project unboxedjs-core --non-interactive
 
   # E2E tests - optional, runs after deployment
   e2e:
