@@ -31,5 +31,8 @@ setGlobalOptions({ maxInstances: 10 });
 //   response.send("Hello from Firebase!");
 // });
 
-// Export all functions
-export * from './main';
+// Export Udemy sync functions
+export * from './udemy/sync-udemy-stats.function';
+
+// Export YouTube sync functions
+export * from './youtube/sync-youtube-stats.function';

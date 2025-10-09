@@ -94,6 +94,18 @@
       "defaultValue": {
         "value": "https://www.upwork.com/freelancers/~01969204f1b1dd4476"
       }
+    },
+    "udemy_full_stats": {
+      "defaultValue": {
+        "value": "{\"lastUpdated\":null,\"stats\":{}}"
+      },
+      "description": "Complete Udemy instructor statistics including courses, top reviews, and detailed metrics (JSON format). Auto-updated daily."
+    },
+    "youtube_full_stats": {
+      "defaultValue": {
+        "value": "{\"lastUpdated\":null,\"stats\":{}}"
+      },
+      "description": "Complete YouTube channel statistics including recent videos and detailed metrics (JSON format). Auto-updated daily."
     }
   }
 }

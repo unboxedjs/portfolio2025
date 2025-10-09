@@ -4,7 +4,13 @@
   >
     <!-- Logo and Copyright Section -->
     <div class="flex flex-col max-[667px]:items-center">
-      <img src="/logo.svg" class="w-[5vw] my-[2vw] max-[667px]:self-center" alt="UnboxedJS Logo" />
+      <img
+        src="/logo.svg"
+        class="w-[5vw] my-[2vw] max-[667px]:self-center cursor-pointer transition-opacity hover:opacity-80"
+        [class.opacity-50]="isSyncing()"
+        alt="UnboxedJS Logo"
+        (click)="onLogoClick()"
+      />
       <p class="mb-[2vw] text-[#c8c8c8]">CRAFT. CODE. CREATE.</p>
       <small>© 2020-2025 UnboxedJS</small>
       <small>All Rights Reserved</small>
