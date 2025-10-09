@@ -1,111 +1,118 @@
 {
   "parameters": {
-    "stats_years_experience": {
-      "defaultValue": {
-        "value": "10"
-      }
-    },
-    "stats_projects": {
-      "defaultValue": {
-        "value": "18"
-      }
-    },
-    "stats_udemy_courses": {
-      "defaultValue": {
-        "value": "2"
-      }
-    },
-    "youtube_subscribers": {
-      "defaultValue": {
-        "value": "240"
-      }
-    },
-    "youtube_views": {
-      "defaultValue": {
-        "value": "10.9k"
-      }
-    },
-    "youtube_watch_hours": {
-      "defaultValue": {
-        "value": "280"
-      }
-    },
-    "udemy_students": {
-      "defaultValue": {
-        "value": "659"
-      }
-    },
-    "udemy_rating": {
-      "defaultValue": {
-        "value": "3.5"
-      }
-    },
-    "udemy_reviews": {
-      "defaultValue": {
-        "value": "122"
-      }
-    },
-    "udemy_jasmine_url": {
-      "defaultValue": {
-        "value": "https://www.udemy.com/course/angular-unit-testing-with-jasmine-karma/"
-      }
-    },
-    "udemy_angularnest_url": {
-      "defaultValue": {
-        "value": "https://www.udemy.com/course/angularnest/?referralCode=80CA9F9919C75A5A3973"
-      }
-    },
-    "social_twitter": {
-      "defaultValue": {
-        "value": "https://twitter.com/unboxedjs"
-      }
-    },
-    "social_youtube": {
-      "defaultValue": {
-        "value": "https://www.youtube.com/channel/UCob_lLtu_hj80nHduNzzQiw"
-      }
-    },
     "social_facebook": {
       "defaultValue": {
-        "value": "https://www.facebook.com/kvsuren/"
-      }
-    },
-    "social_instagram": {
-      "defaultValue": {
-        "value": "https://www.instagram.com/unboxedjs/"
-      }
+        "value": "https://www.facebook.com/unboxedjsofficial"
+      },
+      "valueType": "STRING"
     },
     "social_linkedin": {
       "defaultValue": {
         "value": "https://www.linkedin.com/in/unboxedjs/"
-      }
+      },
+      "valueType": "STRING"
     },
-    "social_buymeacoffee": {
+    "stats_projects": {
       "defaultValue": {
-        "value": "https://www.buymeacoffee.com/unboxedjs"
-      }
+        "value": "18"
+      },
+      "valueType": "STRING"
+    },
+    "stats_years_experience": {
+      "defaultValue": {
+        "value": "10"
+      },
+      "valueType": "STRING"
     },
     "contact_email": {
       "defaultValue": {
         "value": "suren@unboxedjs.com"
-      }
+      },
+      "valueType": "STRING"
+    },
+    "social_instagram": {
+      "defaultValue": {
+        "value": "https://www.instagram.com/unboxedjs/"
+      },
+      "valueType": "STRING"
+    },
+    "udemy_angularnest_url": {
+      "defaultValue": {
+        "value": "https://www.udemy.com/course/angularnest/?referralCode=80CA9F9919C75A5A3973"
+      },
+      "valueType": "STRING"
+    },
+    "udemy_reviews": {
+      "defaultValue": {
+        "value": "122"
+      },
+      "valueType": "STRING"
+    },
+    "udemy_jasmine_url": {
+      "defaultValue": {
+        "value": "https://www.udemy.com/course/angular-unit-testing-with-jasmine-karma/"
+      },
+      "valueType": "STRING"
+    },
+    "social_twitter": {
+      "defaultValue": {
+        "value": "https://twitter.com/unboxedjs"
+      },
+      "valueType": "STRING"
+    },
+    "youtube_subscribers": {
+      "defaultValue": {
+        "value": "240"
+      },
+      "valueType": "STRING"
+    },
+    "youtube_watch_hours": {
+      "defaultValue": {
+        "value": "280"
+      },
+      "valueType": "STRING"
+    },
+    "udemy_students": {
+      "defaultValue": {
+        "value": "659"
+      },
+      "valueType": "STRING"
+    },
+    "social_buymeacoffee": {
+      "defaultValue": {
+        "value": "https://www.buymeacoffee.com/unboxedjs"
+      },
+      "valueType": "STRING"
+    },
+    "social_youtube": {
+      "defaultValue": {
+        "value": "https://www.youtube.com/channel/UCob_lLtu_hj80nHduNzzQiw"
+      },
+      "valueType": "STRING"
+    },
+    "youtube_views": {
+      "defaultValue": {
+        "value": "10.9k"
+      },
+      "valueType": "STRING"
+    },
+    "stats_udemy_courses": {
+      "defaultValue": {
+        "value": "2"
+      },
+      "valueType": "STRING"
+    },
+    "udemy_rating": {
+      "defaultValue": {
+        "value": "3.5"
+      },
+      "valueType": "STRING"
     },
     "upwork_url": {
       "defaultValue": {
         "value": "https://www.upwork.com/freelancers/~01969204f1b1dd4476"
-      }
-    },
-    "udemy_full_stats": {
-      "defaultValue": {
-        "value": "{\"lastUpdated\":null,\"stats\":{}}"
       },
-      "description": "Complete Udemy instructor statistics including courses, top reviews, and detailed metrics (JSON format). Auto-updated daily."
-    },
-    "youtube_full_stats": {
-      "defaultValue": {
-        "value": "{\"lastUpdated\":null,\"stats\":{}}"
-      },
-      "description": "Complete YouTube channel statistics including recent videos and detailed metrics (JSON format). Auto-updated daily."
+      "valueType": "STRING"
     }
   }
 }

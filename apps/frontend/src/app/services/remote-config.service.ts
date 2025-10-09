@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Injectable, signal } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { fetchAndActivate, getRemoteConfig, getString } from 'firebase/remote-config';
@@ -27,7 +28,7 @@ export class RemoteConfigService {
       'https://www.udemy.com/course/angularnest/?referralCode=80CA9F9919C75A5A3973',
     social_twitter: 'https://twitter.com/unboxedjs',
     social_youtube: 'https://www.youtube.com/channel/UCob_lLtu_hj80nHduNzzQiw',
-    social_facebook: 'https://www.facebook.com/kvsuren/',
+    social_facebook: 'https://www.facebook.com/unboxedjsofficial',
     social_instagram: 'https://www.instagram.com/unboxedjs/',
     social_linkedin: 'https://www.linkedin.com/in/unboxedjs/',
     social_buymeacoffee: 'https://www.buymeacoffee.com/unboxedjs',

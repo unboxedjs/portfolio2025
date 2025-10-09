@@ -1,7 +1,5 @@
 import * as admin from 'firebase-admin';
-import { logger } from 'firebase-functions/v2';
-import { HttpsError, onCall } from 'firebase-functions/v2/https';
-import { onSchedule } from 'firebase-functions/v2/scheduler';
+import * as functions from 'firebase-functions/v1';
 import { YouTubeService } from './youtube.service';
 
 // Initialize Firebase Admin if not already initialized
@@ -13,38 +11,31 @@ if (!admin.apps.length) {
  * Syncs YouTube channel stats to Firebase Remote Config
  * Runs daily at 3 AM UTC
  */
-export const syncYouTubeStatsScheduled = onSchedule(
-  {
-    schedule: 'every day 03:00',
-    timeZone: 'UTC',
-    memory: '256MiB',
-  },
-  async _event => {
-    logger.info('Starting scheduled YouTube stats sync');
+export const syncYouTubeStatsScheduled = functions
+  .runWith({ memory: '256MB' })
+  .pubsub.schedule('every day 03:00')
+  .timeZone('UTC')
+  .onRun(async _context => {
+    functions.logger.info('Starting scheduled YouTube stats sync');
     await syncYouTubeStats();
-  }
-);
+  });
 
 /**
  * Manual trigger to sync YouTube stats
  * Can be called from frontend or Firebase Console
  */
-export const syncYouTubeStatsManual = onCall(
-  {
-    memory: '256MiB',
-    cors: true, // Enable CORS for frontend calls
-  },
-  async _request => {
-    logger.info('Starting manual YouTube stats sync');
+export const syncYouTubeStatsManual = functions
+  .runWith({ memory: '256MB' })
+  .https.onCall(async (_data, _context) => {
+    functions.logger.info('Starting manual YouTube stats sync');
     try {
       const result = await syncYouTubeStats();
       return { success: true, data: result };
     } catch (error) {
-      logger.error('Error syncing YouTube stats', error);
-      throw new HttpsError('internal', 'Failed to sync YouTube stats');
+      functions.logger.error('Error syncing YouTube stats', error);
+      throw new functions.https.HttpsError('internal', 'Failed to sync YouTube stats');
     }
-  }
-);
+  });
 
 async function syncYouTubeStats() {
   try {
@@ -52,10 +43,10 @@ async function syncYouTubeStats() {
     const youtubeService = await YouTubeService.create();
 
     // Fetch stats from YouTube
-    logger.info('Fetching YouTube channel stats');
+    functions.logger.info('Fetching YouTube channel stats');
     const stats = await youtubeService.getCompleteStats();
 
-    logger.info('YouTube stats fetched', {
+    functions.logger.info('YouTube stats fetched', {
       subscribers: stats.subscriberCount,
       views: stats.totalViews,
       videos: stats.videoCount,
@@ -97,7 +88,7 @@ async function syncYouTubeStats() {
     for (const [key, value] of Object.entries(updates)) {
       if (template.parameters[key]) {
         template.parameters[key].defaultValue = { value };
-        logger.info(`Updated ${key} to ${value}`);
+        functions.logger.info(`Updated ${key} to ${value}`);
       }
     }
 
@@ -114,7 +105,7 @@ async function syncYouTubeStats() {
     const validatedTemplate = await remoteConfig.validateTemplate(template);
     await remoteConfig.publishTemplate(validatedTemplate);
 
-    logger.info('Remote Config updated successfully');
+    functions.logger.info('Remote Config updated successfully');
 
     return {
       success: true,
@@ -122,7 +113,7 @@ async function syncYouTubeStats() {
       fullStatsSize: JSON.stringify(youtubeFullStats).length,
     };
   } catch (error) {
-    logger.error('Error in syncYouTubeStats', error);
+    functions.logger.error('Error in syncYouTubeStats', error);
     throw error;
   }
 }

@@ -64,6 +64,7 @@ export class ConversationSectionComponent implements OnInit, OnDestroy {
     }
 
     this.isProcessing = true;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const nextIndex = this.queuedMessages.shift()!;
 
     // No typing for first 8 messages (index 0-7), then randomly show typing (40% chance)

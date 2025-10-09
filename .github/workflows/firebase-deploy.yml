@@ -179,6 +179,20 @@ jobs:
         with:
           node-version: 22
 
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install dependencies (if needed)
+        run: |
+          if [ ! -d "node_modules" ]; then
+            npm ci --legacy-peer-deps
+          fi
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -188,7 +202,7 @@ jobs:
       - name: Verify dist folder
         run: ls -la dist/apps/ || echo "dist folder structure may be different"
 
-      - name: Deploy all Firebase services
+      - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -196,18 +210,11 @@ jobs:
           channelId: live
           projectId: unboxedjs-core
 
-      - name: Create .env file for functions
-        run: |
-          cat > apps/functions/.env << EOF
-          YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }}
-          UDEMY_API_TOKEN=${{ secrets.UDEMY_API_TOKEN }}
-          EOF
-
-      - name: Deploy Functions and other services
+      - name: Deploy Firestore and Remote Config
         run: |
           echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNBOXEDJS_CORE }}' > $HOME/gcp-key.json
           export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcp-key.json
-          npx firebase-tools deploy --only functions,firestore,storage,remoteconfig --project unboxedjs-core --non-interactive
+          npx firebase-tools deploy --only firestore,remoteconfig --project unboxedjs-core --non-interactive
 
   # E2E tests - optional, runs after deployment
   e2e:

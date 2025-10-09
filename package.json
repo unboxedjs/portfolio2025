@@ -30,7 +30,10 @@
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
     "release:patch": "standard-version --release-as patch",
-    "release:dry": "standard-version --dry-run"
+    "release:dry": "standard-version --dry-run",
+    "firebase:rc:pull": "firebase remoteconfig:get -o remoteconfig.template.json",
+    "firebase:rc:push": "firebase deploy --only remoteconfig",
+    "firebase:rc:sync": "npm run firebase:rc:pull && echo '✅ Remote Config synced from Firebase'"
   },
   "private": true,
   "dependencies": {
