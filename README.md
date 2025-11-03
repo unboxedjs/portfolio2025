@@ -54,7 +54,7 @@
 **Portfolio 2025** is an enterprise-grade Angular application built with modern
 web technologies and best practices. This project demonstrates a scalable
 monorepo architecture using Nx, comprehensive state management with NgRx, and
-industry-standard development workflows.
+industry-standard development workflow.
 
 ### Key Highlights
 
